@@ -7,5 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TreatmentAvailabilityRepository extends JpaRepository<TreatmentAvailability, Long> {
-    Optional<TreatmentAvailability> findByItemCode(String skuCode);
+
+    List<TreatmentAvailability> findByItemCodeIn(List<String> itemCode);
 }

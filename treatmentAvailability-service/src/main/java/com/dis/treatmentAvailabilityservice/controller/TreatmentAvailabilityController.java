@@ -1,5 +1,6 @@
 package com.dis.treatmentAvailabilityservice.controller;
 
+import com.dis.treatmentAvailabilityservice.dto.TreatmentAvailabilityResponse;
 import com.dis.treatmentAvailabilityservice.service.TreatmentAvailabilityService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,9 @@ import java.util.List;
 public class TreatmentAvailabilityController {
 
     private final TreatmentAvailabilityService treatmentAvailabilityService;
-    @GetMapping("/{item-code}")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public boolean isAvailable(@PathVariable("item-code") String itemCode) {
+    public List<TreatmentAvailabilityResponse> isAvailable(List<String> itemCode) {
         //this will check if treatment is available or not
         return treatmentAvailabilityService.isAvailable(itemCode);
     }
