@@ -18,7 +18,7 @@ public class TreatmentAvailabilityController {
     private final TreatmentAvailabilityService treatmentAvailabilityService;
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<TreatmentAvailabilityResponse> isAvailable(List<String> itemCode) {
+    public List<TreatmentAvailabilityResponse> isAvailable(@RequestParam List<String> itemCode) {
         //this will check if treatment is available or not
         return treatmentAvailabilityService.isAvailable(itemCode);
     }

@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="discovery-server" />
         <module name="treatment-service" />
         <module name="reservation-service" />
         <module name="treatmentAvailability-service" />
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dis" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
       <module name="treatment-service" options="-parameters" />
       <module name="treatmentAvailability-service" options="-parameters" />

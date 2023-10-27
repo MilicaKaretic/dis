@@ -22,7 +22,7 @@ import java.util.UUID;
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void makeReservation(ReservationRequest reservationRequest) {
         Reservation reservation = new Reservation();
@@ -40,8 +40,8 @@ public class ReservationService {
                 .toList();
 
         //call Availability service and make reservation if treatment is available, for that we will use web client
-        TreatmentAvailabilityResponse[] treatmentAvailabilityResponseArray = webClient.get()
-                .uri("http://localhost:8083/api/treatmentAvailability",
+        TreatmentAvailabilityResponse[] treatmentAvailabilityResponseArray = webClientBuilder.build().get()
+                .uri("http://treatmentAvailability-service/api/treatmentAvailability",
                         uriBuilder -> uriBuilder.queryParam("itemCode", itemCodes).build())
                 .retrieve()
                 .bodyToMono(TreatmentAvailabilityResponse[].class) //bodytoMono we need to write in order to receive response from web client
