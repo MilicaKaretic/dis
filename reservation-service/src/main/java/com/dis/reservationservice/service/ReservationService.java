@@ -3,10 +3,12 @@ package com.dis.reservationservice.service;
 import com.dis.reservationservice.dto.ReservationLineItemsDto;
 import com.dis.reservationservice.dto.ReservationRequest;
 import com.dis.reservationservice.dto.TreatmentAvailabilityResponse;
+import com.dis.reservationservice.event.ReservationMadeEvent;
 import com.dis.reservationservice.model.Reservation;
 import com.dis.reservationservice.model.ReservationLineItems;
 import com.dis.reservationservice.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -23,6 +25,7 @@ public class ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final WebClient.Builder webClientBuilder;
+    private final KafkaTemplate<String, ReservationMadeEvent> kafkaTemplate;
 
     public String makeReservation(ReservationRequest reservationRequest) {
         Reservation reservation = new Reservation();
@@ -54,6 +57,7 @@ public class ReservationService {
        //if every treatment from reservation is available we will save reservation in db
         if (allTreatmentsAvailable){
             reservationRepository.save(reservation);
+            kafkaTemplate.send("notificationTopic", new ReservationMadeEvent(reservation.getReservationNumber()));
             return "Reservation made successfully";
         } else {
             throw new IllegalArgumentException("Treatment is not available, please try again later");

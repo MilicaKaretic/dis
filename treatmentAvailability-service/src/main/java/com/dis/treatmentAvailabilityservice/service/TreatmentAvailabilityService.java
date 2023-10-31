@@ -22,7 +22,7 @@ public class TreatmentAvailabilityService {
     public List<TreatmentAvailabilityResponse> isAvailable(List<String> itemCode){
 
         log.info("Wait Started");
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
         log.info("Wait Ended");
 
         return treatmentAvailabilityRepository.findByItemCodeIn(itemCode).stream()

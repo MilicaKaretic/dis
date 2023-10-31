@@ -10,6 +10,7 @@
         <module name="api-gateway" />
         <module name="discovery-server" />
         <module name="treatment-service" />
+        <module name="notification-service" />
         <module name="reservation-service" />
         <module name="treatmentAvailability-service" />
       </profile>
@@ -23,6 +24,7 @@
       <module name="api-gateway" options="-parameters" />
       <module name="dis" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
       <module name="treatment-service" options="-parameters" />
       <module name="treatmentAvailability-service" options="-parameters" />
