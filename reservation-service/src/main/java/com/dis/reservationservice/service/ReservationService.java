@@ -24,7 +24,7 @@ public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final WebClient.Builder webClientBuilder;
 
-    public void makeReservation(ReservationRequest reservationRequest) {
+    public String makeReservation(ReservationRequest reservationRequest) {
         Reservation reservation = new Reservation();
         reservation.setReservationNumber(UUID.randomUUID().toString());
 
@@ -54,6 +54,7 @@ public class ReservationService {
        //if every treatment from reservation is available we will save reservation in db
         if (allTreatmentsAvailable){
             reservationRepository.save(reservation);
+            return "Reservation made successfully";
         } else {
             throw new IllegalArgumentException("Treatment is not available, please try again later");
         }
