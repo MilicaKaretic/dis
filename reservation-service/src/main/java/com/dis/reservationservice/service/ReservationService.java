@@ -44,7 +44,7 @@ public class ReservationService {
 
         //call Availability service and make reservation if treatment is available, for that we will use web client
         TreatmentAvailabilityResponse[] treatmentAvailabilityResponseArray = webClientBuilder.build().get()
-                .uri("http://treatmentAvailability-service/api/treatmentAvailability",
+                .uri("http://treatment-availability-service/api/treatmentAvailability",
                         uriBuilder -> uriBuilder.queryParam("itemCode", itemCodes).build())
                 .retrieve()
                 .bodyToMono(TreatmentAvailabilityResponse[].class) //bodytoMono we need to write in order to receive response from web client

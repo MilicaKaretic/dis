@@ -10,9 +10,9 @@
     <file url="file://$PROJECT_DIR$/reservation-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/treatment-availability-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/treatment-availability-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/treatment-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/treatment-service/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/treatmentAvailability-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/treatmentAvailability-service/src/main/resources" charset="UTF-8" />
   </component>
 </project>

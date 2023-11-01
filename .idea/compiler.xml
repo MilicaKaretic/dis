@@ -9,10 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="discovery-server" />
+        <module name="treatment-availability-service" />
         <module name="treatment-service" />
         <module name="notification-service" />
         <module name="reservation-service" />
-        <module name="treatmentAvailability-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,8 +26,8 @@
       <module name="discovery-server" options="-parameters" />
       <module name="notification-service" options="-parameters" />
       <module name="reservation-service" options="-parameters" />
+      <module name="treatment-availability-service" options="-parameters" />
       <module name="treatment-service" options="-parameters" />
-      <module name="treatmentAvailability-service" options="-parameters" />
     </option>
   </component>
 </project>

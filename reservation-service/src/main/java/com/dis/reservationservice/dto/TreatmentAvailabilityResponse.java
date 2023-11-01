@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TreatmentAvailabilityResponse {
     //we are duplicating this class in reservation service because we can't access
-    //TreatmentAvailabilityResponse class from treatmentAvailability-service
+    //TreatmentAvailabilityResponse class from treatmentA-availability-service
     private String itemCode;
     private boolean isAvailable;
 }

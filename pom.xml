@@ -18,7 +18,7 @@
     <modules>
         <module>treatment-service</module>
         <module>reservation-service</module>
-        <module>treatmentAvailability-service</module>
+        <module>treatment-availability-service</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>notification-service</module>
@@ -71,6 +71,24 @@
                 <configuration>
                     <source>16</source>
                     <target>16</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:20-jdk</image>
+                    </from>
+                    <to>
+                        <image>registry.hub.docker.com/milicakaretic/${project.artifactId}</image>
+                        <!-- Dodajte sledeći red za postavljanje korisničkog imena -->
+                        <auth>
+                            <username>milicakaretic</username>
+                            <password>MaliTim2#3@</password>
+                        </auth>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
