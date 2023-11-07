@@ -54,9 +54,9 @@ class TreatmentServiceApplicationTests {
 	}
 	private TreatmentRequest getTreatmentRequest() {
 		return TreatmentRequest.builder()
-				.name("test name")
+				.name("male haircut")
 				.description("test desc")
-				.location("test loc")
+				.location("Novi Sad")
 				.price(BigDecimal.valueOf(500))
 				.build();
 	}

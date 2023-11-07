@@ -1,0 +1,29 @@
+global:
+  scrape_interval:     10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'treatment_service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['treatment-service:8080']
+        labels:
+          application: 'Treatment Service Application'
+  - job_name: 'reservation_service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['reservation-service:8080']
+        labels:
+          application: 'Reservation Service Application'
+  - job_name: 'treatment_availability_service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['treatment-availability-service:8080']
+        labels:
+          application: 'Treatment Availability Service Application'
+  - job_name: 'notification_service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['notification-service:8080']
+        labels:
+          application: 'Notification Service Application'
