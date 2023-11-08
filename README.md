@@ -48,3 +48,29 @@ If there are failures in the Microservice ecosystem, then you need to fail fast 
 
 Prometheus and Grafana are commonly used for `monitoring` and `observability` in distributed systems. Prometheus is used for collecting and storing time-series data, while Grafana is used like for visualizing and analyzing this data. By implementing tools like Prometheus and Grafana, you can detect issues and optimize performance, providing exceptional user experience. 
 
+### Docker
+
+Docker Compose is a tool for defining and running multi-container Docker applications. With Docker Compose, you use a YAML file called `docker-compose.yml` to configure your application's services. Then, with a single command, you create and start all the services from your configuration. It has commands for managing the whole lifecycle of your application:
+
+- Start, stop, and rebuild services -> `docker-compose up -d` `docker-compose down` `docker-compose up --build`
+- View the status of running services -> `docker compose ps --all`
+- Stream the log output of running services -> `docker compose logs -f [service name]`
+- Run a one-off command on a service
+
+Docker registries are used to host and distribute Docker Images. `Docker Hub` is Docker's official cloud-based registry. Docker Hub is used in this project to push (upload) local images.
+
+## Pipeline Management Guide
+
+- Run the application using Docker
+
+```bash
+  mvn clean verify
+  jib:build -f pom.xml
+  docker-compose up -d
+```
+- Run the application without Docker
+
+```bash
+  mvn clean verify
+  mvn spring-boot:run
+```
