@@ -6,6 +6,7 @@ import com.dis.treatmentservice.model.Treatment;
 import com.dis.treatmentservice.repository.TreatmentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @Slf4j
 public class TreatmentService {
 
+    @Autowired
     private final TreatmentRepository treatmentRepository;
 
     public void createTreatment(TreatmentRequest treatmentRequest) {

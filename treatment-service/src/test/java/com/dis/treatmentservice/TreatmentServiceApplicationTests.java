@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class TreatmentServiceApplicationTests {
 
 	@Container
-	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:7.0.2");
+	static MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.4.14-rc0-focal");
 
 	@Autowired
 	private MockMvc mockMvc;

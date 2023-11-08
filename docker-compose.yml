@@ -19,6 +19,17 @@ services:
     command: -p 5431
     restart: always
 
+  pg-admin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=8080
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./pgAdmin-data:/var/lib/pgadmin
+
   postgres-treatment-availability:
     container_name: postgres-treatment-availability
     image: postgres
@@ -29,8 +40,11 @@ services:
       PGDATA: /data/postgres
     volumes:
       - ./postgres-treatment-availability:/data/postgres
+    expose:
+      - "5432"
     ports:
       - "5432:5432"
+    command: -p 5432
     restart: always
 
   ## Mongo Docker Compose Config
@@ -145,6 +159,8 @@ services:
       - mongo
       - discovery-server
       - api-gateway
+    volumes:
+      - ./treatment-service/src/main/resources/application-docker.properties:/app/resources/application.properties
 
   ## Reservation-Service Docker Compose Config
   reservation-service:
@@ -160,7 +176,7 @@ services:
       - discovery-server
       - api-gateway
 
-  ## treatmentAvailability-Service Docker Compose Config
+  ## treatment-availability-Service Docker Compose Config
   treatment-availability-service:
     container_name: treatment-availability-service
     image: milicakaretic/treatment-availability-service:latest
