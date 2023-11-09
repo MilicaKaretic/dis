@@ -12,6 +12,7 @@ This application implements a microservice system for online treatment reservati
 
 ## Online Treatment Reservation - Microservice system diagram
 
+![](diagrams/microserviceSystemDiagram.png "Application architecture")
 
 The Treatment Service is talking to a `MongoDB` database, the Reservation service and the Treatment Availability service are talking to the `MySQL` database, to store all the information about availability and reservations. Notification service is responsible for sending notifications to the users and that's the reason why it's `stateless service` which doesn't have any database to communicate with.
 
