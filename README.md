@@ -32,9 +32,13 @@ The Discovery Server ([Eureka Server](https://spring.io/projects/spring-cloud-ne
 
 Discovery server simplifies the management of microservices and helps ensure that they can find and communicate with each other in a dynamic and scalable environment, which is a fundamental requirement in a microservices-based system
 
+![](diagrams/serviceDiscovery.png "Discovery Service")
+
 ### API Gateway
 
 [API Gateway](https://spring.io/projects/spring-cloud-gateway) is a central component in a microservices architecture that acts as a reverse proxy for handling and managing requests to the various microservices within the system. It serves as an entry point for clients, such as web or mobile applications, to access the functionalities provided by the underlying microservices. The API gateway routes incoming requests to the appropriate microservice based on the request's URL, HTTP method, and other criteria. It acts as a traffic cop, directing client requests to the appropriate backend services. It provides functionalities such as authentication, authorization, load balancing, and request transformation (data format conversion, payload size reduction, and response filtering). An API gateway simplifies the client-side experience, making it easier for applications to interact with a complex network of microservices.
+
+![](diagrams/apiGateway.png "API Gateway")
 
 ### Distributed Tracing
 
@@ -44,6 +48,8 @@ Microservices are set up to send trace data to the `Zipkin` server asynchronousl
 
 [Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker) is a design pattern to create resilient microservices by limiting the impact of service failures and latencies. The major aim of the Circuit Breaker pattern is to prevent any cascading failure in the system. In a microservice system, failing fast is critical.
 If there are failures in the Microservice ecosystem, then you need to fail fast by opening the circuit. This ensures that no additional calls are made to the failing service so that we return an exception immediately. This pattern also monitors the system for failures and, once things are back to normal, the circuit is closed to allow normal functionality.In this application we are using the `Resilience4j` library for implementing a Circuit Breaker pattern.
+
+![](diagrams/circuitBreaker.png "Circuit Breaker")
 
 ### Prometheus and Grafana
 
